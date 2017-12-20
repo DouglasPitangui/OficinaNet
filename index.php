@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Gerenciamento de Oficina	</title>
+    <title>Gerenciamento de Oficina teste	</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="estilo/bootstrap.min.css" rel="stylesheet">
     <link href="estilo/estilo.css" rel="stylesheet">
