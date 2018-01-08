@@ -4,10 +4,8 @@
   	<meta charset="utf-8">
       <!-- This file has been downloaded from Bootsnipp.com. Enjoy! -->
       <title>Previsão de Resultados</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link href="estilo/aba/bootstrap.min.css" rel="stylesheet">
-      <link href="estilo/aba/bootstrap.min.js" rel="stylesheet">
-      <script src="script/aba/jquery.min.js"></script> 
+      <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+      <!-- Custom fonts for this template-->
   </head>
   <style type="text/css">
     .table {
@@ -25,36 +23,29 @@
         <div id="home" class="tab-pane fade in active"><br>
           <form action="pages/insertClientes.php" name="cadastro" method="get">
             <div class="row">
-              <div class="form-group col-md-7">             
+                           
                 <label for="nome">Nome:</label>
                 <input type="text" required="true" name="nome" class="form-control" id="nome">
-              </div>
+              
             </div>
             <div class="row">
-              <div class="form-group col-md-4">             
+                          
                 <label for="endereco">Endereço:</label>
                 <input type="text" name="endereco" required="true" class="form-control" id="endereco">
-              </div>
-              <div class="form-group col-md-1">             
+              
                 <label for="numero">Número:</label>
                 <input type="text" name="numero" required="true" class="form-control" id="numero">
-              </div>
-              <div class="form-group col-md-2">             
+              
                 <label for="cep">CEP:</label>
                 <input type="text" name="cep" required="true" class="form-control" id="cep">
-              </div>
+              
               <br>     
             </div>
             <div class="row">
-              <div class="form-group col-md-2">             
-                <label for="bairro">Bairro:</label>
+               <label for="bairro">Bairro:</label>
                 <input type="text" name="bairro" required="true" class="form-control" id="bairro">
-              </div>
-              <div class="form-group col-md-3">             
                 <label for="cidade">Cidade:</label>
                 <input type="text" name="cidade" required="true" class="form-control" id="cidade">
-              </div>
-              <div class="form-group col-md-2">             
               <label for="uf">UF:</label>
               <select class="form-control" name="uf">
                   <option value="">Selecione</option>
@@ -88,34 +79,22 @@
                 </select>
                 </div>
               <br>     
-            </div>
-
-            <div class="row">
-              <div class="form-group col-md-3">             
+            
                 <label for="email">E-mail:</label>
                 <input type="text" name="email" class="form-control" id="email">
               </div>
-              <div class="form-group col-md-2">             
                 <label for="pessoa">Tipo Pessoa:</label>
                 <select class="form-control" name="pessoa">
                     <option value="F">Física</option>
                     <option value="J">Jurídica</option>
                 </select>
-              </div>
-              <div class="form-group col-md-2">             
                 <label for="documento">CPF/CNPJ:</label>
                 <input type="text" name="documento" class="form-control" id="documento">
-              </div>
-            </div>
-            <div class="row">              
-              <div class="form-group col-md-3">             
                 <label for="fixo">Tel. Fixo:</label>
                 <input type="text" name="fixo" class="form-control" id="fixo">
-              </div>
-              <div class="form-group col-md-3">             
+            
                 <label for="cel">Tel. Celular:</label>
                 <input type="text" name="cel" class="form-control" id="cel">
-              </div>
                <br>
                <button type="subimit" class="btn btn-success">Salvar</button>
             </div>
