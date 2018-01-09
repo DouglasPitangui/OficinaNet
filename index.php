@@ -108,7 +108,7 @@
 						if($redireciona == 0 || $redireciona == ""){
 							echo "Inicio";
 						}elseif ($redireciona == 1) {
-							include("pages/cadCliente.php");
+							include("pages/Cliente.php");
 				        }elseif ($redireciona == 2) {
 							
 						}elseif ($redireciona == 3) {
