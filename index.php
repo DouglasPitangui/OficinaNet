@@ -14,6 +14,8 @@
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <!-- Page level plugin CSS-->
     <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+    <link href="vendor/datatables/select.dataTables.min.css" rel="stylesheet">
+    <link href="vendor/datatables/buttons.dataTables.min.css" rel="stylesheet">
     <!-- Custom styles for this template-->
     <link href="css/sb-admin.css" rel="stylesheet"> </head>
 
@@ -126,17 +128,22 @@
         <script src="vendor/chart.js/Chart.min.js"></script>
         <script src="vendor/datatables/jquery.dataTables.js"></script>
         <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
+
+        <script src="vendor/datatables/dataTables.buttons.min.js"></script>
+        <script src="vendor/datatables/dataTables.select.min.js"></script>
+        <script src="vendor/datatables/dataTables.editor.min.js"></script>
         <!-- Custom scripts for all pages-->
         <script src="js/sb-admin.min.js"></script>
         <!-- Custom scripts for this page-->
         <script src="js/sb-admin-datatables.min.js"></script>
         <script src="js/sb-admin-charts.min.js"></script>
+         <script src="js/notify.min.js"></script>
         <script type="text/javascript" language="javascript">
             $(document).ready(function () {
                 $('#add_button').click(function () {
                     $('#user_form')[0].reset();
                     $('.modal-title').text("Adicionar Cliente");
-                    $('#action').val("Add");
+                    $('#action').val("btnSalvarCliente");
                     $('#operation').val("Add");
                 });
 
@@ -149,13 +156,37 @@
                         , contentType: false
                         , processData: false
                         , success: function (data) {
-                            alert(data);
                             $('#user_form')[0].reset();
-                            $('#userModal').modal('hide');
+                            $('#modalAddCliente').modal('hide');
+                            $.notify("Cliente Adicionado com Sucesso", "success");
                             dataTable.ajax.reload();
                         }
                     });
                 });
+
+                var dataTable = $('#dataTableCliente').DataTable({
+                    "processing": true,
+                    "serverSide": true,
+                    "select":true,
+
+
+
+                    "ajax": {
+                        url: 'pages/BuscaCliente.php',
+                        type: 'POST'
+                    },
+                    "columns": [
+                        {"data": "cod_cli"},
+                        {"data": "nome"},
+                        {"data": "tel_fixo"},
+                        {"data": "tel_cel"},
+                        {"data": "email"},
+                        {"data": "uf"}
+                    ]
+                });
+
+                
+
             });
         </script>
     </div>

@@ -15,9 +15,12 @@
      $fixo = $_POST['fixo'];
      $cel = $_POST['cel'];
 
+     $querySQL =    "insert into clientes (nome, tel_fixo, tel_cel, email, uf, endereco, numero, cep, flag_ativo, cidade, bairro, pessoa, documento)
+                    VALUES ('$nome', '$fixo', '$cel', '$email', '$uf', '$endereco', $numero, '$cep', 1, '$cidade', '$bairro', '$pessoa', '$documento')";
 
-     mysqli_query($conexao,"insert into clientes (nome, tel_fixo, tel_cel, email, uf, endereco, numero, cep, flag_ativo, cidade, bairro, pessoa, documento) VALUES ('$nome', '$fixo', '$cel', '$email', '$uf', '$endereco', $numero, '$cep', 1, '$cidade', '$bairro', '$pessoa', '$documento')  ");
-		echo "<script>
-		alert('Cadastro efetuado com sucesso!');
-		</script>";
+     if (!$result = mysqli_query($conexao, $querySQL)) {
+          exit(mysqli_error($conexao));
+     }
+     echo "1 Record Added!";
+
 ?>
