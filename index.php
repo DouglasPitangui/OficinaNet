@@ -71,29 +71,28 @@
         <div class="container-fluid">
             <div class="card mb-3">
                 <?php
-						if(isset($_GET['page'])) {
-						$redireciona = $_GET['page'];
-						} else {
-						$redireciona = '';
-						}
+                        if(isset($_GET['page'])) {
+                        $redireciona = $_GET['page'];
+                        } else {
+                        $redireciona = '';
+                        }
 
-						if($redireciona == 0 || $redireciona == ""){
-							echo "Inicio";
-						}elseif ($redireciona == 1) {
-							include("pages/Cliente.php");
-				        }elseif ($redireciona == 2) {
-							
-						}elseif ($redireciona == 3) {
-							
-						}elseif ($redireciona == 4) {
-							
-						}elseif ($redireciona == 5) {
-							
-						}elseif ($redireciona == 6) {
-							
-						}
-					?>
-                    <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+                        if($redireciona == 0 || $redireciona == ""){
+                            echo "Inicio";
+                        }elseif ($redireciona == 1) {
+                            include("pages/Cliente.php");
+                        }elseif ($redireciona == 2) {
+                            
+                        }elseif ($redireciona == 3) {
+                            
+                        }elseif ($redireciona == 4) {
+                            
+                        }elseif ($redireciona == 5) {
+                            
+                        }elseif ($redireciona == 6) {
+                            
+                        }
+                    ?>
             </div>
         </div>
         <!-- /.container-fluid-->
@@ -167,10 +166,7 @@
                 var dataTable = $('#dataTableCliente').DataTable({
                     "processing": true,
                     "serverSide": true,
-                    "select":true,
-
-
-
+                    //"select":true,
                     "ajax": {
                         url: 'pages/BuscaCliente.php',
                         type: 'POST'
@@ -181,9 +177,27 @@
                         {"data": "tel_fixo"},
                         {"data": "tel_cel"},
                         {"data": "email"},
-                        {"data": "uf"}
+                        {"data": "uf"},
+                        {
+                            sortable: false,
+                            "render": function ( data, type, full, meta ) {
+                                var buttonID = full.cod_cli;
+                                 return '<button type="button" id='+buttonID+' data-toggle="modal" data-target="#modalAddCliente" class="fa fa-pencil-square-o btn btn-info"></button>'  
+                        }
+             },
                     ]
                 });
+
+                $('#example').on('click', 'a.editor_remove', function (e) {
+                    alert(1);
+                    e.preventDefault();
+                    
+                    editor.remove( $(this).closest('tr'), {
+                        title: 'Delete record',
+                        message: 'Are you sure you wish to remove this record?',
+                        buttons: 'Delete'
+                    } );
+                } );
 
                 
 

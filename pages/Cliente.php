@@ -13,8 +13,7 @@
                <th>Telefone Celular</th>
                <th>E-mail</th>
                <th>Estado</th>
-               <th>Detalhe</th>
-               <th>Excluir</th>
+               <th></th>
             </tr>
          </thead>
          <tbody> 
